@@ -39,8 +39,8 @@ ShowBalances -->[*]
 insertcardatm --> [*]
 
 @enduml
-------------------------------------------------------------------------------------------------------------------------
 
+---------------------------------------------------------------------------------------------------------------------------------------
 2.Hospital
 
 ![](http://www.plantuml.com/plantuml/img/VO_1IWCn48RlynG_FMs5la0FfQ9GBwr2Z-9XhBDiw2PPajbg4T_TgNRRQ4K81FxvFcR-ULPEslkMwF7g2PF938keyIxcpYbRQdCLZ1OH6Z748t3-mU7zv3Uy4-wQVNORRkMDlGkiBWPwi4-2VkrOzIaBfgWED1W3Zq8OqpTru0VN3CzRCxekkg3UiXB3zJbVxxEAXoatIQm3KG5USeOrijbMjwmyh1iJNOBb-Uicllus_bk2QONQjIrSi5V7v8zD2MTjQGKBjMnmWlvWLhr_bdHV7o-X3vfBUEazVG80)
@@ -70,8 +70,32 @@ Nurse --> AppointmentSystem  :( fill in information)
 Nurse --> MakeAppointment  : Create
 
 Nurse -->MakeAppointment  : NumberOfPatient
-}
-
-@endum
+} @endum
 
 -----------------------------------------------------------------------------------------------------------------------------------
+3. Library
+
+![](http://www.plantuml.com/plantuml/img/VOv12y8m38Nl-HN1ex0_i8DC9ep1yEP9FDGQfDYkfKc5uP-t6rE6YhUyzxwyf69HKPAp0CVr2OjYWuqNtvbpL740oB4GhXgFud5sLwXuIJt6rRmvomDJ15Y8gRLMego_OecTrpTC0U1bZV4IpypESB1g-AwPTIlaCjOo9tf3a_bPLk9MQmg2rcZgzGzwJvB1-tWuqxLt8HBpNou_IDRa4IhgByd14m00)
+
+@startuml
+
+[*] --> GotoLibrary
+
+state "Go to Library" as GotoLibrary{
+
+[*]-->LibraryUser
+
+LibraryUser --> Catalog : Lock up
+
+Catalog --> LibraryUser  : Display
+
+LibraryUser --> LibraryItem : Issue
+
+LibraryItem --> LibraryUser : Accept licence
+
+LibraryItem --> Netserver   : Compress
+
+LibraryItem --> Netserver  : Deliver
+@endum
+-----------------------------------------------------------------------------------------------------------------------------
+
