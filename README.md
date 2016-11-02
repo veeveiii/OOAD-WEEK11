@@ -139,4 +139,24 @@ DisplayPanel -> DisplayPanel : Set Display
 
 ----------------------------------------------------------------------------------------------------------------------
 5.
-![]()
+![](http://www.plantuml.com/plantuml/img/ZOv12i9034NtEKNeKkW5N8XWHGikHD2Dk1XiMWQcCoL9aIBUtL4grAhWCZ_lF_vSrB2sjGCuJawOfZFSXChwt2jnQSu440abJ39RMJKEryONZZX18zXdVNG5s0inVZXmYhblMiMj4Ra4BW16mBVAZgG9NkWdl0XUERY8FazSrasU_KsFjhpU4OyU5pfwR5YHlca7r4Xw8BPbDx3UxW00)
+
+@startuml
+
+[*] --> LoginInterface
+
+state "Digital Handler" as DigitalHandler{
+
+User -> LoginInterface : Input Password
+
+LoginInterface -> LoginInterface : Response
+
+LoginInterface -> LoginControl : Login EmpID
+
+LoginInterface -> LoginControl : Login Password
+
+LoginControl -> Employee : Get EmpID
+
+LoginControl -> LoginControl : Verify Password
+
+}
