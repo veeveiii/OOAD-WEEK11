@@ -160,3 +160,36 @@ LoginControl -> Employee : Get EmpID
 LoginControl -> LoginControl : Verify Password
 
 }
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+#Activity Diagram
+1.ATM
+![](http://www.plantuml.com/plantuml/img/FO_13e9034Jl_OfcJsh2Bn2GcCW1ui4RyR3kba34NR8jyVUjeFRMoPlfj62nIPRd13BAH5XU6spAwbot9u3TOOzPbgEf0rCIT3Rv3s5WLUT4p3XRvbTCtW2CFPfg8FV0oqz46IW0wgYZQ-CDpT4g814t-v-4BEyaBQG4qqHEK5LA6al1Zpt0TdJBlzl91aVyRU9fZZpAkcbfW48z-jGR)
+
+@startuml
+
+title ATM MACHINE
+
+(*) --> "Insert card ATM"
+
+--> "press password"
+
+if "Check Password" then
+
+-> [No] "Back to press Password"
+
+->[true] "select order"
+
+endif
+
+--> "Check balances"
+
+--> "deposit"
+
+-->(*)
+
+@enduml
+---------------------------------------------------------------------------------------------------------------
+
