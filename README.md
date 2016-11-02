@@ -99,3 +99,44 @@ LibraryItem --> Netserver  : Deliver
 @endum
 -----------------------------------------------------------------------------------------------------------------------------
 
+4.
+
+![](http://www.plantuml.com/plantuml/img/VPBBReD034Nt_WehAr8rFy2YQbJwKXU96gLTL5qOnescdG2QCP7ozpNX8Q2eA-3wtEindjiWvAKwEe2FgqzShMvm7zW3g2wCYyGUh9339ygDOxz02jXghGHG6r2DOnrZf4niaUEM_LVXZsmmMZVA_ObpMG9C79hnmkSjvUpK_SXIVmBqcjRlo6ML8odgV0rHLnC2C2ZLO5bXF02qheeMticApGyFXN_Eoqfsbpb7ML4GhyGoljG0PXshjeTQFGUMQ1cV2clwDfkIlOwbSFQZJEQO_2nJ_v1_gSI6qj5vscV-L3skQMjZq8m6QfmTeV0h7soGoxB6wGCcuSmUoRsHg_Xlw7MNtJp7pkQrMsZN0VUbqSD6HQeNvqIfuqtwpPbCUlSxdyJiz5wqqYy0)
+
+@startuml
+
+[*] --> User
+
+state "Digital Handler" as DigitalHandler
+
+User -> DigitalHandler : action Performed (Action Event)
+
+DigitalHandler -> KeyPanel : Get Key
+
+KeyPanel -> Calculator : enter Digita
+
+Calculator -> Cpu :enter Digit
+
+Cpu -> WaitingForInputState : enter Digit(string):State
+
+WaitingForInputState --> Cpu  : reset():void
+
+Cpu -> OperandStack : clear():void
+
+Cpu -> OperationStack : clear():void
+
+Cpu -> Display: reset():void
+
+WaitingForInputState -> Display : Add digit(string):void
+
+Display -> Register : reset():void
+
+Display -> DecimalValue: Add digit(string,string):string
+
+Display -> DisplayPanel : reset(): Update(observableObject):void
+
+DisplayPanel -> DisplayPanel : Set Display
+
+----------------------------------------------------------------------------------------------------------------------
+5.
+![]()
